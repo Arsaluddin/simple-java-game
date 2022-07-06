@@ -6,7 +6,12 @@ public class player1 {
     public player1(String name, String weapon, int health){
         this.name = name;
         this.weapon = weapon;
-        this.health = health;
+        if(health<0 || health>100){
+            this.health = 100;
+        }
+        else{
+            this.health = health;
+        }
     }
 
     public void damagedbyGun1(){
@@ -17,7 +22,7 @@ public class player1 {
         System.out.println("the health is reduced by 30 and new health is" + this.health);
 
         if(this.health==0){
-            System.out.println("the player is dead");
+            System.out.println(getname() +" is dead");
         }
     }
 
@@ -30,10 +35,19 @@ public class player1 {
         System.out.println("the health is reduced by 30 and new health is" + this.health);
         
         if(this.health==0){
-            System.out.println("the player is dead");
+            System.out.println(getname() +" is dead");
         }
     }
     
+    public void heal(){
+        if(health <=0){
+            System.out.println("the player is dead can not heal");
+        }
+        else{
+            this.health = 100;
+            System.out.println("new health : " + this.health);
+        }
+    }
 
     public String getname(){
         return name;
